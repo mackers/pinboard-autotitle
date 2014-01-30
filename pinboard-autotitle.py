@@ -31,9 +31,9 @@ for post in posts:
         
         soup = BeautifulSoup(h.text)
 
-        if soup.title:
+        if soup.title and soup.title.string:
             post['description'] = soup.title.string
-            print "  Got a title: " + post['description']
+            print "  Got a title: " + unicode(post['description'])
         else:
             print "  Could not get title"
             post['description'] = post['href']
