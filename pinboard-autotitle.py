@@ -34,9 +34,11 @@ for post in posts:
         if soup.title:
             post['description'] = soup.title.string
             print "  Got a title: " + post['description']
-            changed = 1;
         else:
             print "  Could not get title"
+            post['description'] = post['href']
+        
+        changed = 1;
     else:
         print "  Title: " + post['description']
 
@@ -63,8 +65,7 @@ for post in posts:
         p.add(url=post['href'],
                 description=post['description'],
                 extended=post['extended'],
-                tags=post['tags'],
-                date=post['time_parsed'])
+                tags=post['tags'])
         print "  ... done"
     else:
         print "  ... no change"
