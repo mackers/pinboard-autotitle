@@ -54,7 +54,9 @@ for post in posts:
             post['tags'] += ['gif']
 
         print "  Suggested tags: " + ', '.join(post['tags'])
-        changed = 1;
+
+        if len(post['tags']) > 0:
+            changed = 1;
     else:
         print "  Tags: " + ', '.join(post['tags'])
 
